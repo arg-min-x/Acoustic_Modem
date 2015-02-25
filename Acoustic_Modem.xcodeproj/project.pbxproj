@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		665DA1D01A9E371D00C1819E /* coverart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 665DA1CF1A9E371D00C1819E /* coverart.pdf */; };
+		665DA1D21A9E37D100C1819E /* coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 665DA1D11A9E37D100C1819E /* coverart.png */; };
+		6684DE571A9D0508001F687A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE561A9D0508001F687A /* main.m */; };
+		6684DE5A1A9D0508001F687A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE591A9D0508001F687A /* AppDelegate.m */; };
+		6684DE5D1A9D0508001F687A /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE5C1A9D0508001F687A /* InputViewController.m */; };
+		6684DE601A9D0508001F687A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6684DE5E1A9D0508001F687A /* Main.storyboard */; };
+		6684DE621A9D0508001F687A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6684DE611A9D0508001F687A /* Images.xcassets */; };
+		6684DE651A9D0508001F687A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6684DE631A9D0508001F687A /* LaunchScreen.xib */; };
+		6684DE711A9D0508001F687A /* Acoustic_ModemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE701A9D0508001F687A /* Acoustic_ModemTests.m */; };
+		6684DE7E1A9D062F001F687A /* acousticModemTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */; };
+		6684DE7F1A9D062F001F687A /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE7D1A9D062F001F687A /* AudioController.m */; };
+		6684DE821A9D0A1B001F687A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE811A9D0A1B001F687A /* SettingsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6684DE6B1A9D0508001F687A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6684DE491A9D0508001F687A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6684DE501A9D0508001F687A;
+			remoteInfo = Acoustic_Modem;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		665DA1CF1A9E371D00C1819E /* coverart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = coverart.pdf; sourceTree = "<group>"; };
+		665DA1D11A9E37D100C1819E /* coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coverart.png; sourceTree = "<group>"; };
+		6684DE511A9D0508001F687A /* Acoustic_Modem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acoustic_Modem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6684DE551A9D0508001F687A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6684DE561A9D0508001F687A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6684DE581A9D0508001F687A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6684DE591A9D0508001F687A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6684DE5B1A9D0508001F687A /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		6684DE5C1A9D0508001F687A /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		6684DE5F1A9D0508001F687A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6684DE611A9D0508001F687A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6684DE641A9D0508001F687A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6684DE6A1A9D0508001F687A /* Acoustic_ModemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Acoustic_ModemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6684DE6F1A9D0508001F687A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6684DE701A9D0508001F687A /* Acoustic_ModemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Acoustic_ModemTests.m; sourceTree = "<group>"; };
+		6684DE7A1A9D062F001F687A /* acousticModemTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = acousticModemTransfer.h; sourceTree = "<group>"; };
+		6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = acousticModemTransfer.m; sourceTree = "<group>"; };
+		6684DE7C1A9D062F001F687A /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		6684DE7D1A9D062F001F687A /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		6684DE801A9D0A1B001F687A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		6684DE811A9D0A1B001F687A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6684DE4E1A9D0508001F687A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6684DE671A9D0508001F687A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6684DE481A9D0508001F687A = {
+			isa = PBXGroup;
+			children = (
+				6684DE531A9D0508001F687A /* Acoustic_Modem */,
+				6684DE6D1A9D0508001F687A /* Acoustic_ModemTests */,
+				6684DE521A9D0508001F687A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6684DE521A9D0508001F687A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6684DE511A9D0508001F687A /* Acoustic_Modem.app */,
+				6684DE6A1A9D0508001F687A /* Acoustic_ModemTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6684DE531A9D0508001F687A /* Acoustic_Modem */ = {
+			isa = PBXGroup;
+			children = (
+				665DA1D11A9E37D100C1819E /* coverart.png */,
+				665DA1CF1A9E371D00C1819E /* coverart.pdf */,
+				6684DE7A1A9D062F001F687A /* acousticModemTransfer.h */,
+				6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */,
+				6684DE7C1A9D062F001F687A /* AudioController.h */,
+				6684DE7D1A9D062F001F687A /* AudioController.m */,
+				6684DE581A9D0508001F687A /* AppDelegate.h */,
+				6684DE591A9D0508001F687A /* AppDelegate.m */,
+				6684DE5B1A9D0508001F687A /* InputViewController.h */,
+				6684DE5C1A9D0508001F687A /* InputViewController.m */,
+				6684DE5E1A9D0508001F687A /* Main.storyboard */,
+				6684DE611A9D0508001F687A /* Images.xcassets */,
+				6684DE631A9D0508001F687A /* LaunchScreen.xib */,
+				6684DE541A9D0508001F687A /* Supporting Files */,
+				6684DE801A9D0A1B001F687A /* SettingsViewController.h */,
+				6684DE811A9D0A1B001F687A /* SettingsViewController.m */,
+			);
+			path = Acoustic_Modem;
+			sourceTree = "<group>";
+		};
+		6684DE541A9D0508001F687A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6684DE551A9D0508001F687A /* Info.plist */,
+				6684DE561A9D0508001F687A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6684DE6D1A9D0508001F687A /* Acoustic_ModemTests */ = {
+			isa = PBXGroup;
+			children = (
+				6684DE701A9D0508001F687A /* Acoustic_ModemTests.m */,
+				6684DE6E1A9D0508001F687A /* Supporting Files */,
+			);
+			path = Acoustic_ModemTests;
+			sourceTree = "<group>";
+		};
+		6684DE6E1A9D0508001F687A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6684DE6F1A9D0508001F687A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6684DE501A9D0508001F687A /* Acoustic_Modem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6684DE741A9D0508001F687A /* Build configuration list for PBXNativeTarget "Acoustic_Modem" */;
+			buildPhases = (
+				6684DE4D1A9D0508001F687A /* Sources */,
+				6684DE4E1A9D0508001F687A /* Frameworks */,
+				6684DE4F1A9D0508001F687A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Acoustic_Modem;
+			productName = Acoustic_Modem;
+			productReference = 6684DE511A9D0508001F687A /* Acoustic_Modem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6684DE691A9D0508001F687A /* Acoustic_ModemTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6684DE771A9D0508001F687A /* Build configuration list for PBXNativeTarget "Acoustic_ModemTests" */;
+			buildPhases = (
+				6684DE661A9D0508001F687A /* Sources */,
+				6684DE671A9D0508001F687A /* Frameworks */,
+				6684DE681A9D0508001F687A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6684DE6C1A9D0508001F687A /* PBXTargetDependency */,
+			);
+			name = Acoustic_ModemTests;
+			productName = Acoustic_ModemTests;
+			productReference = 6684DE6A1A9D0508001F687A /* Acoustic_ModemTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6684DE491A9D0508001F687A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Adam;
+				TargetAttributes = {
+					6684DE501A9D0508001F687A = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					6684DE691A9D0508001F687A = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 6684DE501A9D0508001F687A;
+					};
+				};
+			};
+			buildConfigurationList = 6684DE4C1A9D0508001F687A /* Build configuration list for PBXProject "Acoustic_Modem" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6684DE481A9D0508001F687A;
+			productRefGroup = 6684DE521A9D0508001F687A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6684DE501A9D0508001F687A /* Acoustic_Modem */,
+				6684DE691A9D0508001F687A /* Acoustic_ModemTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6684DE4F1A9D0508001F687A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				665DA1D21A9E37D100C1819E /* coverart.png in Resources */,
+				6684DE601A9D0508001F687A /* Main.storyboard in Resources */,
+				6684DE651A9D0508001F687A /* LaunchScreen.xib in Resources */,
+				665DA1D01A9E371D00C1819E /* coverart.pdf in Resources */,
+				6684DE621A9D0508001F687A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6684DE681A9D0508001F687A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6684DE4D1A9D0508001F687A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6684DE7F1A9D062F001F687A /* AudioController.m in Sources */,
+				6684DE7E1A9D062F001F687A /* acousticModemTransfer.m in Sources */,
+				6684DE5D1A9D0508001F687A /* InputViewController.m in Sources */,
+				6684DE821A9D0A1B001F687A /* SettingsViewController.m in Sources */,
+				6684DE5A1A9D0508001F687A /* AppDelegate.m in Sources */,
+				6684DE571A9D0508001F687A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6684DE661A9D0508001F687A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6684DE711A9D0508001F687A /* Acoustic_ModemTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6684DE6C1A9D0508001F687A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6684DE501A9D0508001F687A /* Acoustic_Modem */;
+			targetProxy = 6684DE6B1A9D0508001F687A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6684DE5E1A9D0508001F687A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6684DE5F1A9D0508001F687A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6684DE631A9D0508001F687A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6684DE641A9D0508001F687A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6684DE721A9D0508001F687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6684DE731A9D0508001F687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6684DE751A9D0508001F687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Acoustic_Modem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6684DE761A9D0508001F687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Acoustic_Modem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6684DE781A9D0508001F687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Acoustic_ModemTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acoustic_Modem.app/Acoustic_Modem";
+			};
+			name = Debug;
+		};
+		6684DE791A9D0508001F687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Acoustic_ModemTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Acoustic_Modem.app/Acoustic_Modem";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6684DE4C1A9D0508001F687A /* Build configuration list for PBXProject "Acoustic_Modem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6684DE721A9D0508001F687A /* Debug */,
+				6684DE731A9D0508001F687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6684DE741A9D0508001F687A /* Build configuration list for PBXNativeTarget "Acoustic_Modem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6684DE751A9D0508001F687A /* Debug */,
+				6684DE761A9D0508001F687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6684DE771A9D0508001F687A /* Build configuration list for PBXNativeTarget "Acoustic_ModemTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6684DE781A9D0508001F687A /* Debug */,
+				6684DE791A9D0508001F687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6684DE491A9D0508001F687A /* Project object */;
+}
