@@ -12,10 +12,6 @@
 #import "string.h"
 #include <complex.h>
 #include "math.h"
-#ifndef Acoustic_Modem_acousticModemTransfer_h
-#define Acoustic_Modem_acousticModemTransfer_h
-
-#endif
 
 @interface acousticModemTransfer : NSObject
 {
@@ -35,18 +31,16 @@
     float *signal;
     vDSP_Length lenOfSymbolsWithZeros;
     vDSP_Length ResultLength;
-    
-
-    
 }
 //Properties
 @property (nonatomic,retain) NSURL *fileURL;
 @property (nonatomic,retain) NSString *myString; //input
 @property (nonatomic) UInt32 Audio;
-@property (nonatomic) float frequencytest;
+@property (nonatomic) float carrierFrequency;
 @property (nonatomic) int oversample;
-@property (nonatomic) float rollfactor;
-@property (nonatomic) int Nperiods;
+@property (nonatomic) float rollOffFactor;
+@property (nonatomic) int nPeriods;
+@property (nonatomic) BOOL QPSK;
 
 // Methods
 

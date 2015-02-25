@@ -23,12 +23,10 @@
 
 -(IBAction)unwindToInputController:(UIStoryboardSegue *)sender{
     SettingsViewController * properties = [sender sourceViewController]; //getting properties
-//    NSInteger * blah = properties.carrierFrequency;
-//    printf("%d",blah);
-    self.modemTransferOb.frequencytest = properties.carrierFrequency;
+    self.modemTransferOb.carrierFrequency = properties.carrierFrequency;
     self.modemTransferOb.oversample = properties.oversample;
-    self.modemTransferOb.rollfactor = properties.rollOffFactor;
-    self.modemTransferOb.Nperiods = properties.nPeriods;
+    self.modemTransferOb.rollOffFactor = properties.rollOffFactor;
+    self.modemTransferOb.nPeriods = properties.nPeriods;
     
 }
 
@@ -45,10 +43,10 @@
 }
 - (IBAction)submitForTransmission:(id)sender {
     [self.textInputField resignFirstResponder];
-    self.transmitSignalButton.enabled = NO;
-    self.transmitSignalButton.alpha = 0.4;
-    self.settingsButton.enabled = NO;
-    self.settingsButton.alpha = 0.4;
+//    self.transmitSignalButton.enabled = NO;
+//    self.transmitSignalButton.alpha = 0.4;
+//    self.settingsButton.enabled = NO;
+//    self.settingsButton.alpha = 0.4;
     //    [modemTransferOb QPSKsymbols];
     //    [modemTransferOb zerosQPSK];
     //    [modemTransferOb PulseShape];
@@ -66,11 +64,10 @@
     [self.audioController configureAudioPlayer];
     [self.audioController tryPlayMusic];
     
-    self.transmitSignalButton.enabled = YES;
-    self.transmitSignalButton.alpha = 1;
-    self.settingsButton.enabled = YES;
-    self.settingsButton.alpha = 0.4;
-//    self.changeLabel.text = @"Submitted!";
+//    self.transmitSignalButton.enabled = YES;
+//    self.transmitSignalButton.alpha = 1;
+//    self.settingsButton.enabled = YES;
+//    self.settingsButton.alpha = 0.4;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
