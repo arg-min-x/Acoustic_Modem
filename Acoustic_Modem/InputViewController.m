@@ -27,9 +27,7 @@
     self.modemTransferOb.oversample = properties.oversample;
     self.modemTransferOb.rollOffFactor = properties.rollOffFactor;
     self.modemTransferOb.nPeriods = properties.nPeriods;
-    
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,33 +39,34 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)submitForTransmission:(id)sender {
+    // Clear Text Keyboard if still there
     [self.textInputField resignFirstResponder];
-//    self.transmitSignalButton.enabled = NO;
-//    self.transmitSignalButton.alpha = 0.4;
-//    self.settingsButton.enabled = NO;
-//    self.settingsButton.alpha = 0.4;
-    //    [modemTransferOb QPSKsymbols];
-    //    [modemTransferOb zerosQPSK];
-    //    [modemTransferOb PulseShape];
-    //    [modemTransferOb QPSKconvolutionandmodulation];
+    
+    // Get the Input string
     [self.modemTransferOb getInputString:self.textInputField.text];
-    [self.modemTransferOb BPSKsymbols];
-    [self.modemTransferOb Addinzeros];
-    [self.modemTransferOb PulseShape];
-    [self.modemTransferOb BPSKconvolutionandmodulation];
-    [self.modemTransferOb converttoAudio];
+    
+    // Choose between BPSK ans QPSK
+    if  (self.modemTransferOb.QPSK == 0){
+        [self.modemTransferOb BPSKsymbols];                 // Convert characters to symbols
+        [self.modemTransferOb Addinzeros];                  // Upsample
+        [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
+        [self.modemTransferOb BPSKconvolutionandmodulation];// Filter the upsampled bits
+    }
+    else{
+        [self.modemTransferOb QPSKsymbols];                 // Convert characters to symbols
+        [self.modemTransferOb zerosQPSK];                   // Upsample
+        [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
+        [self.modemTransferOb QPSKconvolutionandmodulation];// Filter the upsampled bits
+    }
+    [self.modemTransferOb converttoAudio];                  // Convert the Signal to Audio
     
     // Initialize audio controller
     self.audioController = [[AudioController alloc] init];
     [self.audioController getFileURL:(self.modemTransferOb.fileURL)];
     [self.audioController configureAudioPlayer];
-    [self.audioController tryPlayMusic];
-    
-//    self.transmitSignalButton.enabled = YES;
-//    self.transmitSignalButton.alpha = 1;
-//    self.settingsButton.enabled = YES;
-//    self.settingsButton.alpha = 0.4;
+    [self.audioController tryPlaySound];                    // Play the signal
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

@@ -13,8 +13,7 @@
     NSURL *soundURL;
 }
 - (instancetype)init;
-- (void)tryPlayMusic;
-- (void)playSystemSound;
+- (void)tryPlaySound;
 - (void)getFileURL:(NSURL *) inputURL;
 - (void)configureAudioPlayer;
 

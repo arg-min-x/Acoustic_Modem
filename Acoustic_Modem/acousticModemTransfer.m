@@ -17,10 +17,11 @@
     self = [super init];
     self.rollOffFactor = 0.5;
     self.nPeriods = 5;
-    myString = @"Hello, World!";
+    myString = @"Hello, World!_________";
     bitspersymbol=1;
     self.carrierFrequency=2000;
     self.oversample=110;
+    self.QPSK = FALSE;
     lenString = [myString length];
     
     return self;

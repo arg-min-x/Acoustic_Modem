@@ -29,8 +29,6 @@
     self = [super init];
     if (self) {
         [self configureAudioSession];
-//        [self configureAudioPlayer];
-        [self configureSystemSound];
     }
     return self;
 }
@@ -40,7 +38,7 @@
     self.fileURL = inputURL;
 }
 
-- (void)tryPlayMusic {
+- (void)tryPlaySound {
 	// If background music or other music is already playing, nothing more to do here
 	if (self.backgroundMusicPlaying || [self.audioSession isOtherAudioPlaying]) {
         return;
@@ -56,16 +54,10 @@
      self.backgroundMusicPlaying = YES;
 }
 
-- (void)playSystemSound {
-    AudioServicesPlaySystemSound(self.pewPewSound);
-}
-
 - (void)configureAudioPlayer {
     // Create audio player with background music
     //    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"background-music-aac" ofType:@"caf"];
     //    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"pew-pew-lei" ofType:@"caf"];
-    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"1kHz_05sec" ofType:@"wav"];
-    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:backgroundMusicPath];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.fileURL error:nil];
     self.backgroundMusicPlayer.delegate = self;  // We need this so we can restart after interruptions
     self.backgroundMusicPlayer.numberOfLoops = 0;	// Negative number means loop forever
@@ -94,49 +86,5 @@
     }
 }
 
-//- (void)configureAudioPlayer {
-//    // Create audio player with background music
-////    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"background-music-aac" ofType:@"caf"];
-////    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"pew-pew-lei" ofType:@"caf"];
-//    NSString *backgroundMusicPath = [[NSBundle mainBundle] pathForResource:@"1kHz_05sec" ofType:@"wav"];
-//    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:backgroundMusicPath];
-//    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:nil];
-//    self.backgroundMusicPlayer.delegate = self;  // We need this so we can restart after interruptions
-//    self.backgroundMusicPlayer.numberOfLoops = 1;	// Negative number means loop forever
-//}
-
-- (void)configureSystemSound {
-    // This is the simplest way to play a sound.
-	// But note with System Sound services you can only use:
-	// File Formats (a.k.a. audio containers or extensions): CAF, AIF, WAV
-	// Data Formats (a.k.a. audio encoding): linear PCM (such as LEI16) or IMA4
-	// Sounds must be 30 sec or less
-	// And only one sound plays at a time!
-	NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"1kHz_05sec" ofType:@"wav"];
-	NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &_pewPewSound);
-}
-
-
-
-#pragma mark - AVAudioPlayerDelegate methods
-
-- (void) audioPlayerBeginInterruption: (AVAudioPlayer *) player {
-    //It is often not necessary to implement this method since by the time
-    //this method is called, the sound has already stopped. You don't need to
-    //stop it yourself.
-    //In this case the backgroundMusicPlaying flag could be used in any
-    //other portion of the code that needs to know if your music is playing.
-    
-	self.backgroundMusicInterrupted = YES;
-	self.backgroundMusicPlaying = NO;
-}
-
-- (void) audioPlayerEndInterruption: (AVAudioPlayer *) player withOptions:(NSUInteger) flags{
-    //Since this method is only called if music was previously interrupted
-    //you know that the music has stopped playing and can now be resumed.
-      [self tryPlayMusic];
-      self.backgroundMusicInterrupted = NO;
-}
 
 @end
