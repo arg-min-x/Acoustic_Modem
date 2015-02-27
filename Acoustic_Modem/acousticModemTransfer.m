@@ -21,7 +21,7 @@
     bitspersymbol=1;
     self.carrierFrequency=2000;
     self.oversample=110;
-    self.QPSK = FALSE;
+    self.isBPSK = true;
     lenString = [myString length];
     
     return self;
@@ -278,7 +278,7 @@
     vDSP_Length qLength = lenOfSymbolsWithZeros - filterlength;
     vDSP_Length iLength = lenOfSymbolsWithZeros - filterlength;
     //
-    float * ResultI = (float*)malloc(iLength* sizeof(ResultI));
+    float * ResultI = (float*)malloc(iLength * sizeof(ResultI));
     float * ResultQ = (float*)malloc(qLength * sizeof(ResultQ));
     
     signal = (float*)malloc(iLength*sizeof(signal));
@@ -293,6 +293,10 @@
         signal[h] = ResultI[h+1]*cosf(2*M_PI*self.carrierFrequency*(float)h/44100.0) - ResultQ[h+1]*sinf(2*M_PI*self.carrierFrequency*(float)h/44100.0);
         
     }
+    
+    // Free array memory
+    free(ResultI);
+    free(ResultQ);
 }
 -(void)BPSKconvolutionandmodulation {
     vDSP_Length filterlength=self.oversample*self.nPeriods*2;
@@ -305,10 +309,18 @@
     signal = (float*)malloc(ResultLength*sizeof(float));
     vDSP_conv(Symbolswithzeros,1,parray+filterlength-1,-1,BPSKResult, 1, ResultLength,filterlength); //convolution
     for (int w=0; w<ResultLength-1; w++) {
-        signal[w]=10*BPSKResult[w+1]*cosf(2.0*M_PI*self.carrierFrequency*(float)w/44100.0); //modulation
+        signal[w]=BPSKResult[w+1]*cosf(2.0*M_PI*self.carrierFrequency*(float)w/44100.0); //modulation
     }
-
     
+    free(BPSKResult);
+    
+}
+
+-(void)createCarrierFrequencyOnly{
+    signal = (float *)malloc(44100*3*sizeof(float));
+    for (int ind=0; ind<44100*3-1; ind++) {
+        signal[ind] = cos(2.0*M_PI*self.carrierFrequency*(float)ind/44100.0);
+    }
 }
 
 -(void)converttoAudio
@@ -323,10 +335,8 @@
     
     filePath = [filePath stringByAppendingPathComponent:@"signal.wav"];
     
-    
     fileURL = [NSURL fileURLWithPath:filePath];
     AudioStreamBasicDescription asbd;
-    
     
     memset(&asbd,0, sizeof(asbd));
     
@@ -349,6 +359,9 @@
                                       &asbd,
                                       kAudioFileFlags_EraseFile,
                                       &audiofile);
+    if (audioErr == 1) {
+        printf("Audio Error");
+    }
     assert (audioErr == noErr);
     
     UInt32 numSamples = ResultLength;
@@ -359,5 +372,23 @@
     audioErr = AudioFileClose(audiofile);
 }
 
+-(void)freeMemory
+{
+    if (self.isBPSK) {
+        free(convertedtoBPSK);
+        free(Symbolswithzeros);
+    }
+    else {
+        free(convertedtoIs);
+        free(convertedtoQs);
+        free(zeroeswithIs);
+        free(zeroeswithQs);
+    }
+//
+    free(parray);
+    free(signal);
+    
+    [[NSFileManager defaultManager] removeItemAtURL:fileURL error:nil];
+}
 
 @end

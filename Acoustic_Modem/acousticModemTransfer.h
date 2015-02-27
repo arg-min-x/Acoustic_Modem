@@ -40,7 +40,8 @@
 @property (nonatomic) int oversample;
 @property (nonatomic) float rollOffFactor;
 @property (nonatomic) int nPeriods;
-@property (nonatomic) BOOL QPSK;
+@property (nonatomic) BOOL isBPSK;
+@property (nonatomic) BOOL carrierFrequencyOnly;
 
 // Methods
 
@@ -62,10 +63,16 @@
 -(void)PulseShape;
 
 //
+-(void)createCarrierFrequencyOnly;
+
+//
 -(void)QPSKconvolutionandmodulation;
 -(void)BPSKconvolutionandmodulation;
 
 // Convert to an audio signal play
 -(void)converttoAudio;
+
+// Free The allocated memory
+-(void)freeMemory;
 
 @end

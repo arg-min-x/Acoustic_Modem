@@ -16,5 +16,6 @@
 - (void)tryPlaySound;
 - (void)getFileURL:(NSURL *) inputURL;
 - (void)configureAudioPlayer;
+- (void)configureAudioSession;
 
 @end

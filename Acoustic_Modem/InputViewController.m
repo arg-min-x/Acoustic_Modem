@@ -27,6 +27,7 @@
     self.modemTransferOb.oversample = properties.oversample;
     self.modemTransferOb.rollOffFactor = properties.rollOffFactor;
     self.modemTransferOb.nPeriods = properties.nPeriods;
+    self.modemTransferOb.isBPSK = properties.isBPSK;
 }
 
 - (void)viewDidLoad {
@@ -40,6 +41,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)pushToSettingsViewController{
+    SettingsViewController *settingsVCOb = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+
+    settingsVCOb.carrierFrequency = self.modemTransferOb.carrierFrequency;
+    settingsVCOb.oversample = self.modemTransferOb.oversample;
+    settingsVCOb.nPeriods = self.modemTransferOb.nPeriods;
+    settingsVCOb.rollOffFactor = self.modemTransferOb.rollOffFactor;
+    settingsVCOb.isBPSK = self.modemTransferOb.isBPSK;
+    
+    [self presentViewController:settingsVCOb animated:YES completion:nil];
+}
+
 - (IBAction)submitForTransmission:(id)sender {
     // Clear Text Keyboard if still there
     [self.textInputField resignFirstResponder];
@@ -47,28 +60,38 @@
     // Get the Input string
     [self.modemTransferOb getInputString:self.textInputField.text];
     
-    // Choose between BPSK ans QPSK
-    if  (self.modemTransferOb.QPSK == 0){
-        [self.modemTransferOb BPSKsymbols];                 // Convert characters to symbols
-        [self.modemTransferOb Addinzeros];                  // Upsample
-        [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
-        [self.modemTransferOb BPSKconvolutionandmodulation];// Filter the upsampled bits
+    self.modemTransferOb.carrierFrequencyOnly = 1;
+    if (self.modemTransferOb.carrierFrequencyOnly ==1) {
+        [self.modemTransferOb createCarrierFrequencyOnly];
     }
     else{
-        [self.modemTransferOb QPSKsymbols];                 // Convert characters to symbols
-        [self.modemTransferOb zerosQPSK];                   // Upsample
-        [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
-        [self.modemTransferOb QPSKconvolutionandmodulation];// Filter the upsampled bits
+        // Choose between BPSK ans QPSK
+        if  (self.modemTransferOb.isBPSK == 1){
+            [self.modemTransferOb BPSKsymbols];                 // Convert characters to symbols
+            [self.modemTransferOb Addinzeros];                  // Upsample
+            [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
+            [self.modemTransferOb BPSKconvolutionandmodulation];// Filter the upsampled bits
+            printf("\nusing BPSK\n");
+        }
+        else{
+            printf("\nusing QPSK\n");
+            [self.modemTransferOb QPSKsymbols];                 // Convert characters to symbols
+            [self.modemTransferOb zerosQPSK];                   // Upsample
+            [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
+            [self.modemTransferOb QPSKconvolutionandmodulation];// Filter the upsampled bits
+        }
     }
-    [self.modemTransferOb converttoAudio];                  // Convert the Signal to Audio
+    printf("here");
+    [self.modemTransferOb converttoAudio];                      // Convert the Signal to Audio
     
     // Initialize audio controller
     self.audioController = [[AudioController alloc] init];
+    [self.audioController configureAudioSession];
     [self.audioController getFileURL:(self.modemTransferOb.fileURL)];
     [self.audioController configureAudioPlayer];
-    [self.audioController tryPlaySound];                    // Play the signal
+    [self.audioController tryPlaySound];                        // Play the signal
+    [self.modemTransferOb freeMemory];
 }
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.textInputField resignFirstResponder];
 }

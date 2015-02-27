@@ -63,8 +63,6 @@
     self.backgroundMusicPlayer.numberOfLoops = 0;	// Negative number means loop forever
 }
 
-#pragma mark - Private
-
 - (void) configureAudioSession {
     // Implicit initialization of audio session
     self.audioSession = [AVAudioSession sharedInstance];
@@ -85,6 +83,4 @@
         NSLog(@"Error setting category! %ld", (long)[setCategoryError code]);
     }
 }
-
-
 @end
