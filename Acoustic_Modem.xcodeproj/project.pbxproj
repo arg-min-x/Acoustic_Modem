@@ -94,8 +94,8 @@
 		6684DE531A9D0508001F687A /* Acoustic_Modem */ = {
 			isa = PBXGroup;
 			children = (
-				665DA1D11A9E37D100C1819E /* coverart.png */,
 				665DA1CF1A9E371D00C1819E /* coverart.pdf */,
+				665DA1D11A9E37D100C1819E /* coverart.png */,
 				6684DE7A1A9D062F001F687A /* acousticModemTransfer.h */,
 				6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */,
 				6684DE7C1A9D062F001F687A /* AudioController.h */,
@@ -189,6 +189,7 @@
 				TargetAttributes = {
 					6684DE501A9D0508001F687A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Q6NAKJ74V6;
 					};
 					6684DE691A9D0508001F687A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -371,9 +372,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Acoustic_Modem/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -381,9 +385,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Acoustic_Modem/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
