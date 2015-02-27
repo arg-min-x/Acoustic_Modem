@@ -15,12 +15,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *nPeriodsInput;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UISwitch *enableQPSK;
+@property (strong, nonatomic) IBOutlet UISwitch *carrierFrequencyOnlySwitch;
 
 @property (nonatomic) float carrierFrequency;
 @property (nonatomic) int oversample;
 @property (nonatomic) float rollOffFactor;
 @property (nonatomic) int nPeriods;
 @property (nonatomic) BOOL isBPSK;
+@property (nonatomic) BOOL carrierFrequencyOnly;
 //@property (nonatomic) float carrierFrequency;
 //@property (strong, nonatomic) int * carrierFrequency;
 

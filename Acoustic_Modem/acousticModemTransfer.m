@@ -22,6 +22,7 @@
     self.carrierFrequency=2000;
     self.oversample=110;
     self.isBPSK = true;
+    self.carrierFrequencyOnly = false;
     lenString = [myString length];
     
     return self;
@@ -290,7 +291,7 @@
     
     for (int h=0; h<iLength-1; h++) {
         
-        signal[h] = ResultI[h+1]*cosf(2*M_PI*self.carrierFrequency*(float)h/44100.0) - ResultQ[h+1]*sinf(2*M_PI*self.carrierFrequency*(float)h/44100.0);
+        signal[h] = 10*(ResultI[h+1]*cosf(2*M_PI*self.carrierFrequency*(float)h/44100.0) - ResultQ[h+1]*sinf(2*M_PI*self.carrierFrequency*(float)h/44100.0));
         
     }
     
@@ -309,7 +310,7 @@
     signal = (float*)malloc(ResultLength*sizeof(float));
     vDSP_conv(Symbolswithzeros,1,parray+filterlength-1,-1,BPSKResult, 1, ResultLength,filterlength); //convolution
     for (int w=0; w<ResultLength-1; w++) {
-        signal[w]=BPSKResult[w+1]*cosf(2.0*M_PI*self.carrierFrequency*(float)w/44100.0); //modulation
+        signal[w]=10*BPSKResult[w+1]*cosf(2.0*M_PI*self.carrierFrequency*(float)w/44100.0); //modulation
     }
     
     free(BPSKResult);
@@ -326,9 +327,15 @@
 -(void)converttoAudio
 
 {
-    vDSP_Length filterlength=self.oversample*self.nPeriods*2;
-    
-    ResultLength=lenOfSymbolsWithZeros-filterlength;
+    if (self.carrierFrequencyOnly ==0) {
+        vDSP_Length filterlength=self.oversample*self.nPeriods*2;
+        
+        ResultLength=lenOfSymbolsWithZeros-filterlength;
+    }
+    else{
+        ResultLength = 44100*3;
+    }
+
     
     
     NSString *filePath = NSTemporaryDirectory();
@@ -374,18 +381,21 @@
 
 -(void)freeMemory
 {
-    if (self.isBPSK) {
-        free(convertedtoBPSK);
-        free(Symbolswithzeros);
-    }
-    else {
-        free(convertedtoIs);
-        free(convertedtoQs);
-        free(zeroeswithIs);
-        free(zeroeswithQs);
-    }
-//
+    if (self.carrierFrequencyOnly==0) {
+        
+        if (self.isBPSK) {
+            free(convertedtoBPSK);
+            free(Symbolswithzeros);
+        }
+        else {
+            free(convertedtoIs);
+            free(convertedtoQs);
+            free(zeroeswithIs);
+            free(zeroeswithQs);
+        }
     free(parray);
+    }
+
     free(signal);
     
     [[NSFileManager defaultManager] removeItemAtURL:fileURL error:nil];

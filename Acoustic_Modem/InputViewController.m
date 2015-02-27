@@ -28,6 +28,7 @@
     self.modemTransferOb.rollOffFactor = properties.rollOffFactor;
     self.modemTransferOb.nPeriods = properties.nPeriods;
     self.modemTransferOb.isBPSK = properties.isBPSK;
+    self.modemTransferOb.carrierFrequencyOnly = properties.carrierFrequencyOnly;
 }
 
 - (void)viewDidLoad {
@@ -49,6 +50,7 @@
     settingsVCOb.nPeriods = self.modemTransferOb.nPeriods;
     settingsVCOb.rollOffFactor = self.modemTransferOb.rollOffFactor;
     settingsVCOb.isBPSK = self.modemTransferOb.isBPSK;
+    settingsVCOb.carrierFrequencyOnly = self.modemTransferOb.carrierFrequencyOnly;
     
     [self presentViewController:settingsVCOb animated:YES completion:nil];
 }
@@ -60,7 +62,6 @@
     // Get the Input string
     [self.modemTransferOb getInputString:self.textInputField.text];
     
-    self.modemTransferOb.carrierFrequencyOnly = 1;
     if (self.modemTransferOb.carrierFrequencyOnly ==1) {
         [self.modemTransferOb createCarrierFrequencyOnly];
     }
@@ -71,17 +72,14 @@
             [self.modemTransferOb Addinzeros];                  // Upsample
             [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
             [self.modemTransferOb BPSKconvolutionandmodulation];// Filter the upsampled bits
-            printf("\nusing BPSK\n");
         }
         else{
-            printf("\nusing QPSK\n");
             [self.modemTransferOb QPSKsymbols];                 // Convert characters to symbols
             [self.modemTransferOb zerosQPSK];                   // Upsample
             [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
             [self.modemTransferOb QPSKconvolutionandmodulation];// Filter the upsampled bits
         }
     }
-    printf("here");
     [self.modemTransferOb converttoAudio];                      // Convert the Signal to Audio
     
     // Initialize audio controller
