@@ -19,18 +19,6 @@
 @end
 
 @implementation InputViewController
-
-
--(IBAction)unwindToInputController:(UIStoryboardSegue *)sender{
-    SettingsViewController * properties = [sender sourceViewController]; //getting properties
-    self.modemTransferOb.carrierFrequency = properties.carrierFrequency;
-    self.modemTransferOb.oversample = properties.oversample;
-    self.modemTransferOb.rollOffFactor = properties.rollOffFactor;
-    self.modemTransferOb.nPeriods = properties.nPeriods;
-    self.modemTransferOb.isBPSK = properties.isBPSK;
-    self.modemTransferOb.carrierFrequencyOnly = properties.carrierFrequencyOnly;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -44,7 +32,7 @@
 
 -(IBAction)pushToSettingsViewController{
     SettingsViewController *settingsVCOb = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
-
+    
     settingsVCOb.carrierFrequency = self.modemTransferOb.carrierFrequency;
     settingsVCOb.oversample = self.modemTransferOb.oversample;
     settingsVCOb.nPeriods = self.modemTransferOb.nPeriods;
@@ -53,6 +41,16 @@
     settingsVCOb.carrierFrequencyOnly = self.modemTransferOb.carrierFrequencyOnly;
     
     [self presentViewController:settingsVCOb animated:YES completion:nil];
+}
+
+-(IBAction)unwindToInputController:(UIStoryboardSegue *)sender{
+    SettingsViewController * properties = [sender sourceViewController]; //getting properties
+    self.modemTransferOb.carrierFrequency = properties.carrierFrequency;
+    self.modemTransferOb.oversample = properties.oversample;
+    self.modemTransferOb.rollOffFactor = properties.rollOffFactor;
+    self.modemTransferOb.nPeriods = properties.nPeriods;
+    self.modemTransferOb.isBPSK = properties.isBPSK;
+    self.modemTransferOb.carrierFrequencyOnly = properties.carrierFrequencyOnly;
 }
 
 - (IBAction)submitForTransmission:(id)sender {
@@ -90,8 +88,15 @@
     [self.audioController tryPlaySound];                        // Play the signal
     [self.modemTransferOb freeMemory];
 }
+
+// get rid of keyboard when touching outside the keyboard
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.textInputField resignFirstResponder];
+}
+
+// Lock orientation into portrait orientation
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

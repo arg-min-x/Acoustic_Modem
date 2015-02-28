@@ -28,10 +28,6 @@
     self.rollOffFactorInput.text = [NSString stringWithFormat:@"%.2f",self.rollOffFactor];
     self.enableQPSK.on = !self.isBPSK;
     self.carrierFrequencyOnlySwitch.on = self.carrierFrequencyOnly;
-    
-//    _BPSKorQPSKPickerData = @[@"BPSK",@"QPSK"];
-//    self.BPSKorQPSKPicker.dataSource = self;
-//    self.BPSKorQPSKPicker.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +36,13 @@
 }
 
 - (IBAction)saveParameters:(id)sender {
+    // Remove Keyboards when saving
+    [self.carrierFrequencyInput resignFirstResponder];
+    [self.oversampleInput resignFirstResponder];
+    [self.rollOffFactorInput resignFirstResponder];
+    [self.nPeriodsInput resignFirstResponder];
+    
+    // Get the parameters from the view controller
     NSString * tmp = self.carrierFrequencyInput.text;
     self.carrierFrequency = [tmp floatValue];
     
@@ -51,22 +54,17 @@
     
     tmp = self.nPeriodsInput.text;
     self.nPeriods = [tmp intValue];
-
-    [self.carrierFrequencyInput resignFirstResponder];
-    [self.oversampleInput resignFirstResponder];
-    [self.rollOffFactorInput resignFirstResponder];
-    [self.nPeriodsInput resignFirstResponder];
     
+    // Check if the BPSK switch is checked ans set isBPSK
     BOOL isEnabledQPSK = self.enableQPSK.on;
     if (isEnabledQPSK== 0) {
         self.isBPSK = true;
-        printf("Using BPSK\n");
     }
     else{
         self.isBPSK = false;
-        printf("UsingQPSK\n");
     }
     
+    // Check if the carrier frequency only mode is checked and set carrierFrequencyOnly
     BOOL isEnabledcarrierFrequencyOnly = self.carrierFrequencyOnlySwitch.on;
     if (isEnabledcarrierFrequencyOnly== 1) {
         self.carrierFrequencyOnly = true;
@@ -80,12 +78,18 @@
     self.backButton.alpha = 1;
 }
 
+// Remove keyboards if the user touches anywhere on the screen
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.carrierFrequencyInput resignFirstResponder];
     [self.oversampleInput resignFirstResponder];
     [self.rollOffFactorInput resignFirstResponder];
     [self.nPeriodsInput resignFirstResponder];
     
+}
+
+// Lock orientation into portrait orientation
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

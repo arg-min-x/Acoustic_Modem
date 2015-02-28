@@ -27,13 +27,18 @@
     
     return self;
 }
+
 -(void)getInputString:(NSString *)inputString{
     
-    if (lenString<23) {
+    if (lenString<51) {
         myString=inputString;
-        myString=[myString stringByPaddingToLength:22 withString:@"*" startingAtIndex:0]; //added decimals after, spaces may not work, but you can try
-        
-    }else{
+        myString=[myString stringByPaddingToLength:50 withString:@"_" startingAtIndex:0]; //added decimals after, spaces may not work, but you can try
+    }
+    else if (lenString >50){
+        NSInteger index = lenString-51;
+        myString = [myString substringFromIndex:index];
+    }
+    else if(lenString ==50){
         myString=inputString;
     }
     lenString = [myString length];
@@ -43,14 +48,14 @@
     NSData * data = [myString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
     NSUInteger len = [data length];//gets length of data
     char *bytes = [data bytes];
-    convertedtoBPSK = (int*)malloc((len*8+26)*sizeof(int));
-    int pilots[26]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1,
-                     +1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
-//    int pilots[13]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
+    convertedtoBPSK = (int*)malloc((len*8+13)*sizeof(int));
+//    int pilots[26]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1,
+//                     +1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
+    int pilots[13]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
 
     int m=0;
     
-    for (int pi=0; pi<26; pi++) { //adding in pilot symbols
+    for (int pi=0; pi<13; pi++) { //adding in pilot symbols
 //        for (int pi=0; pi<13; pi++) { //adding in pilot symbols
         convertedtoBPSK[m]=pilots[pi];
         m++;
@@ -66,10 +71,10 @@
             }
             
             if ((Nbyte&0x80)==0x80) { //checking if left most bit is equal to one
-                convertedtoBPSK[m]=-1; //define symbol equal to -1
+                convertedtoBPSK[m]=+1; //define symbol equal to +1
                 
             } else {
-                convertedtoBPSK[m]=+1; //define symbol equal to +1
+                convertedtoBPSK[m]=-1; //define symbol equal to -1
             }
             m++;
         }
@@ -89,15 +94,16 @@
     char d = 0x40;//-1 second quadrant
     char symbols[]={a,b,c,d};
     
-    int pilots[26]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1,+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
+//    int pilots[26]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1,+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
+    int pilots[13]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
     
-    convertedtoIs = (int*)malloc((len*4+26)*sizeof(int));  //real part
-    convertedtoQs = (int*)malloc((len*4+26)*sizeof(int)); //imaginary part
+    convertedtoIs = (int*)malloc((len*4+13)*sizeof(int));  //real part
+    convertedtoQs = (int*)malloc((len*4+13)*sizeof(int)); //imaginary part
     
     int m=0;
     
     
-    for (int pi=0; pi<26; pi++) {
+    for (int pi=0; pi<13; pi++) {
         convertedtoQs[m]=0;
         convertedtoIs[m]=pilots[pi]; //pilots real part only
         m++;
@@ -105,8 +111,6 @@
     
     for(int i =0 ; i<len; i++){
         char Nbyte = *(bytes+i); //gets byte
-        
-        
         for(int j =0 ; j < 4; j++){
             
             if (j!=0) {
@@ -116,43 +120,38 @@
             }
             
             for(int k=0; k<4; k++) {
-                
-                
                 if((unsigned char) (Nbyte & 0xC0) == (unsigned char) symbols[k]) {
-                    
-                    
                     //need unsigned char because otherwise symbols[2] will equal -128 and not positive 128
-
                     switch (k) {
-                            
-                            
                         case 3: //binary 01 -1
-                            convertedtoIs[m]=1;
-                            convertedtoQs[m]=-1;
+//                            convertedtoIs[m]=1;
+//                            convertedtoQs[m]=-1;
+                            convertedtoIs[m]=-1;
+                            convertedtoQs[m]=+1;
                             //   printf("%d\n", convertedtoQs[m]);
                             m++;
                             //  printf("%d\n", m);
                             
                             break;
                         case 2: //binary 10 +1
-                            convertedtoIs[m]=-1;
-                            convertedtoQs[m]=1;
+                            convertedtoIs[m]=+1;
+                            convertedtoQs[m]=-1;
                             //   printf("%d\n", convertedtoQs[m]);
                             // printf("%d\n", m);
                             m++;
                             
                             break;
                         case 1: //binary 00 -3
-                            convertedtoIs[m]=1;
-                            convertedtoQs[m]=1;
+                            convertedtoIs[m]=-1;
+                            convertedtoQs[m]=-1;
                             //      printf("%d\n", convertedtoQs[m]);
                             
                             // printf("%d\n", m);
                             m++;
                             break;
                         case 0: //binary 11 +3
-                            convertedtoIs[m]=-1;
-                            convertedtoQs[m]=-1;
+                            convertedtoIs[m]=1;
+                            convertedtoQs[m]=1;
                             //   printf("%d\n", convertedtoQs[m]);
                             
                             //   printf("%d\n", m);
@@ -166,10 +165,9 @@
     }
 }
 
-
 -(void)zerosQPSK{
     // int length = [self.stringInput.text length]*4;
-    int length = lenString*4+26;
+    int length = lenString*4+13;
     int newlength = length*self.oversample;
     float padding =self.nPeriods*self.oversample*2;
     int x=0;
@@ -207,9 +205,10 @@
     }
     
 }
+
 -(void)Addinzeros{
 //     int length=[self.stringInput.text length]*8+26; //number of bits
-    int length = lenString*8+26;
+    int length = lenString*8+13;
     float padding = self.nPeriods*self.oversample*2; // whole filter length (nPeriods in both direction)
     int newlength = length*self.oversample+padding*2; //number of bits plus zeros
     int x = 0;
@@ -248,7 +247,6 @@
 
 
 -(void)PulseShape{
-    
     int N = self.nPeriods;
     
     float pT;
@@ -271,10 +269,11 @@
     }
     
 }
+
 -(void)QPSKconvolutionandmodulation{
 
     vDSP_Length filterlength=self.nPeriods*self.oversample*2;
-    lenOfSymbolsWithZeros = (lenString*4+26)*self.oversample+2*filterlength;
+    lenOfSymbolsWithZeros = (lenString*4+13)*self.oversample+2*filterlength;
 
     vDSP_Length qLength = lenOfSymbolsWithZeros - filterlength;
     vDSP_Length iLength = lenOfSymbolsWithZeros - filterlength;
@@ -299,9 +298,10 @@
     free(ResultI);
     free(ResultQ);
 }
+
 -(void)BPSKconvolutionandmodulation {
     vDSP_Length filterlength=self.oversample*self.nPeriods*2;
-    lenOfSymbolsWithZeros = (lenString*8+26)*self.oversample+2*filterlength;
+    lenOfSymbolsWithZeros = (lenString*8+13)*self.oversample+2*filterlength;
     
     ResultLength=lenOfSymbolsWithZeros-filterlength;
     
@@ -366,9 +366,7 @@
                                       &asbd,
                                       kAudioFileFlags_EraseFile,
                                       &audiofile);
-    if (audioErr == 1) {
-        printf("Audio Error");
-    }
+
     assert (audioErr == noErr);
     
     UInt32 numSamples = ResultLength;

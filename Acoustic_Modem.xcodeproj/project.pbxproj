@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		665DA1D01A9E371D00C1819E /* coverart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 665DA1CF1A9E371D00C1819E /* coverart.pdf */; };
 		665DA1D21A9E37D100C1819E /* coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 665DA1D11A9E37D100C1819E /* coverart.png */; };
 		6684DE571A9D0508001F687A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE561A9D0508001F687A /* main.m */; };
 		6684DE5A1A9D0508001F687A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE591A9D0508001F687A /* AppDelegate.m */; };
@@ -32,7 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		665DA1CF1A9E371D00C1819E /* coverart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = coverart.pdf; sourceTree = "<group>"; };
 		665DA1D11A9E37D100C1819E /* coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coverart.png; sourceTree = "<group>"; };
 		6684DE511A9D0508001F687A /* Acoustic_Modem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acoustic_Modem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6684DE551A9D0508001F687A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		6684DE531A9D0508001F687A /* Acoustic_Modem */ = {
 			isa = PBXGroup;
 			children = (
-				665DA1CF1A9E371D00C1819E /* coverart.pdf */,
 				665DA1D11A9E37D100C1819E /* coverart.png */,
 				6684DE7A1A9D062F001F687A /* acousticModemTransfer.h */,
 				6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */,
@@ -224,7 +221,6 @@
 				665DA1D21A9E37D100C1819E /* coverart.png in Resources */,
 				6684DE601A9D0508001F687A /* Main.storyboard in Resources */,
 				6684DE651A9D0508001F687A /* LaunchScreen.xib in Resources */,
-				665DA1D01A9E371D00C1819E /* coverart.pdf in Resources */,
 				6684DE621A9D0508001F687A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

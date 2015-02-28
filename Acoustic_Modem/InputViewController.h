@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "acousticModemTransfer.h"
 
+// Properties
 @interface InputViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *textInputField;
+@property (strong, nonatomic) IBOutlet UITextField *textInputField;     // string input text field
+@property (strong, nonatomic) IBOutlet UIButton *transmitSignalButton;  // transmit signal button
+@property (strong, nonatomic) IBOutlet UIButton *settingsButton;        // access settings button
+@property (strong, nonatomic) acousticModemTransfer * modemTransferOb;  // instantiation of modem transfer
 
-@property (strong, nonatomic) IBOutlet UIButton *transmitSignalButton;
--(IBAction)unwindToInputController:(UIStoryboardSegue *)segue;
-@property (strong, nonatomic) IBOutlet UIButton *settingsButton;
-@property (strong, nonatomic) acousticModemTransfer * modemTransferOb;
+// Methods
+-(IBAction)unwindToInputController:(UIStoryboardSegue *)segue;// Get settings from settings view controller
+-(NSUInteger)supportedInterfaceOrientations;                  // Lock screen orientation to portrait
 @end
 

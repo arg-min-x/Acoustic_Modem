@@ -9,22 +9,24 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *carrierFrequencyInput;
-@property (strong, nonatomic) IBOutlet UITextField *oversampleInput;
-@property (strong, nonatomic) IBOutlet UITextField *rollOffFactorInput;
-@property (strong, nonatomic) IBOutlet UITextField *nPeriodsInput;
-@property (strong, nonatomic) IBOutlet UIButton *backButton;
-@property (strong, nonatomic) IBOutlet UISwitch *enableQPSK;
-@property (strong, nonatomic) IBOutlet UISwitch *carrierFrequencyOnlySwitch;
 
-@property (nonatomic) float carrierFrequency;
-@property (nonatomic) int oversample;
-@property (nonatomic) float rollOffFactor;
-@property (nonatomic) int nPeriods;
-@property (nonatomic) BOOL isBPSK;
-@property (nonatomic) BOOL carrierFrequencyOnly;
-//@property (nonatomic) float carrierFrequency;
-//@property (strong, nonatomic) int * carrierFrequency;
+// Properties
+@property (strong, nonatomic) IBOutlet UITextField *carrierFrequencyInput;  //carrier frequency input box
+@property (strong, nonatomic) IBOutlet UITextField *oversampleInput;        // oversample input box
+@property (strong, nonatomic) IBOutlet UITextField *rollOffFactorInput;     // roll off factor input box
+@property (strong, nonatomic) IBOutlet UITextField *nPeriodsInput;          // number of periord input box
+@property (strong, nonatomic) IBOutlet UIButton *backButton;                // back to transmit page button
+@property (strong, nonatomic) IBOutlet UISwitch *enableQPSK;                // use QPSK switch
+@property (strong, nonatomic) IBOutlet UISwitch *carrierFrequencyOnlySwitch;// carrier frequency onl switch
 
+@property (nonatomic) float carrierFrequency;       // carrier frequency
+@property (nonatomic) int oversample;               // oversamplig factor
+@property (nonatomic) float rollOffFactor;          // roll off factor
+@property (nonatomic) int nPeriods;                 // number of periods
+@property (nonatomic) BOOL isBPSK;                  // use BPSK if true
+@property (nonatomic) BOOL carrierFrequencyOnly;    // transmit only the carrier frequency if true
+
+// Methods
+-(NSUInteger)supportedInterfaceOrientations;        // Lock screen orientation to portrait
 
 @end
