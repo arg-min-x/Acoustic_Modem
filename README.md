@@ -1,2 +1,2 @@
 # Acoustic_Modem
-An iOS app to demonstrate n acoustic quadrature amplitude modulation transmitter.  
+An iOS app to demonstrate an acoustic quadrature amplitude modulation transmitter.  
