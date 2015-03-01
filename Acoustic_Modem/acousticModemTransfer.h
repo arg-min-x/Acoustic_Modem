@@ -41,6 +41,7 @@
 @property (nonatomic) int nPeriods;                 // number of periods
 @property (nonatomic) BOOL isBPSK;                  // use BPSK if true
 @property (nonatomic) BOOL carrierFrequencyOnly;    // transmit only the carrier frequency if true
+@property (nonatomic) BOOL isBarker13;              // Use Barker13 pilot
 
 // Methods
 

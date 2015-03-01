@@ -23,6 +23,7 @@
     self.oversample=110;
     self.isBPSK = true;
     self.carrierFrequencyOnly = false;
+    self.isBarker13 = true;
     lenString = [myString length];
     
     return self;
@@ -318,8 +319,8 @@
 }
 
 -(void)createCarrierFrequencyOnly{
-    signal = (float *)malloc(44100*3*sizeof(float));
-    for (int ind=0; ind<44100*3-1; ind++) {
+    signal = (float *)malloc(17640*sizeof(float));  // 0.4 seconds at audio sampling frequency
+    for (int ind=0; ind<17640-1; ind++) {
         signal[ind] = cos(2.0*M_PI*self.carrierFrequency*(float)ind/44100.0);
     }
 }
@@ -333,7 +334,7 @@
         ResultLength=lenOfSymbolsWithZeros-filterlength;
     }
     else{
-        ResultLength = 44100*3;
+        ResultLength = 17640;   // 0.4 seconds at audio sampling frequency
     }
 
     

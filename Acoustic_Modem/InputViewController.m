@@ -39,6 +39,7 @@
     settingsVCOb.rollOffFactor = self.modemTransferOb.rollOffFactor;
     settingsVCOb.isBPSK = self.modemTransferOb.isBPSK;
     settingsVCOb.carrierFrequencyOnly = self.modemTransferOb.carrierFrequencyOnly;
+    settingsVCOb.isBarker13 = self.modemTransferOb.isBarker13;
     
     [self presentViewController:settingsVCOb animated:YES completion:nil];
 }
@@ -51,33 +52,45 @@
     self.modemTransferOb.nPeriods = properties.nPeriods;
     self.modemTransferOb.isBPSK = properties.isBPSK;
     self.modemTransferOb.carrierFrequencyOnly = properties.carrierFrequencyOnly;
+    self.modemTransferOb.isBarker13 = properties.isBarker13;
 }
 
 - (IBAction)submitForTransmission:(id)sender {
     // Clear Text Keyboard if still there
     [self.textInputField resignFirstResponder];
+    self.modemTransferOb.carrierFrequencyOnly = false;
     
     // Get the Input string
     [self.modemTransferOb getInputString:self.textInputField.text];
     
-    if (self.modemTransferOb.carrierFrequencyOnly ==1) {
-        [self.modemTransferOb createCarrierFrequencyOnly];
+        // Choose between BPSK ans QPSK
+    if  (self.modemTransferOb.isBPSK == 1){
+        [self.modemTransferOb BPSKsymbols];                 // Convert characters to symbols
+        [self.modemTransferOb Addinzeros];                  // Upsample
+        [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
+        [self.modemTransferOb BPSKconvolutionandmodulation];// Filter the upsampled bits
     }
     else{
-        // Choose between BPSK ans QPSK
-        if  (self.modemTransferOb.isBPSK == 1){
-            [self.modemTransferOb BPSKsymbols];                 // Convert characters to symbols
-            [self.modemTransferOb Addinzeros];                  // Upsample
-            [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
-            [self.modemTransferOb BPSKconvolutionandmodulation];// Filter the upsampled bits
-        }
-        else{
-            [self.modemTransferOb QPSKsymbols];                 // Convert characters to symbols
-            [self.modemTransferOb zerosQPSK];                   // Upsample
-            [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
-            [self.modemTransferOb QPSKconvolutionandmodulation];// Filter the upsampled bits
-        }
+        [self.modemTransferOb QPSKsymbols];                 // Convert characters to symbols
+        [self.modemTransferOb zerosQPSK];                   // Upsample
+        [self.modemTransferOb PulseShape];                  // Create Pulse Shaping Filter
+        [self.modemTransferOb QPSKconvolutionandmodulation];// Filter the upsampled bits
     }
+
+    [self.modemTransferOb converttoAudio];                      // Convert the Signal to Audio
+    
+    // Initialize audio controller
+    self.audioController = [[AudioController alloc] init];
+    [self.audioController configureAudioSession];
+    [self.audioController getFileURL:(self.modemTransferOb.fileURL)];
+    [self.audioController configureAudioPlayer];
+    [self.audioController tryPlaySound];                        // Play the signal
+    [self.modemTransferOb freeMemory];
+}
+- (IBAction)transmitCarrierFrequency:(id)sender {
+    self.modemTransferOb.carrierFrequencyOnly = true;
+    [self.textInputField resignFirstResponder];         // Clear Text Keyboard if still there
+    [self.modemTransferOb createCarrierFrequencyOnly];
     [self.modemTransferOb converttoAudio];                      // Convert the Signal to Audio
     
     // Initialize audio controller

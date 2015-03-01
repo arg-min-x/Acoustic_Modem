@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *transmitSignalButton;  // transmit signal button
 @property (strong, nonatomic) IBOutlet UIButton *settingsButton;        // access settings button
 @property (strong, nonatomic) acousticModemTransfer * modemTransferOb;  // instantiation of modem transfer
+@property (strong, nonatomic) IBOutlet UIButton *transmitCarrierFrequencyButton;
 
 // Methods
 -(IBAction)unwindToInputController:(UIStoryboardSegue *)segue;// Get settings from settings view controller

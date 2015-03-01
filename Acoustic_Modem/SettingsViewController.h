@@ -18,6 +18,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *backButton;                // back to transmit page button
 @property (strong, nonatomic) IBOutlet UISwitch *enableQPSK;                // use QPSK switch
 @property (strong, nonatomic) IBOutlet UISwitch *carrierFrequencyOnlySwitch;// carrier frequency onl switch
+@property (strong, nonatomic) IBOutlet UISwitch *barker13Switch;
+@property (strong, nonatomic) IBOutlet UILabel *barkerUITextLabel;
+@property (strong, nonatomic) IBOutlet UILabel *random51TextLabel;
 
 @property (nonatomic) float carrierFrequency;       // carrier frequency
 @property (nonatomic) int oversample;               // oversamplig factor
@@ -25,6 +28,8 @@
 @property (nonatomic) int nPeriods;                 // number of periods
 @property (nonatomic) BOOL isBPSK;                  // use BPSK if true
 @property (nonatomic) BOOL carrierFrequencyOnly;    // transmit only the carrier frequency if true
+@property (nonatomic) BOOL isBarker13;
+
 
 // Methods
 -(NSUInteger)supportedInterfaceOrientations;        // Lock screen orientation to portrait

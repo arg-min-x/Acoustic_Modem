@@ -18,21 +18,59 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // disable back button until settings are saved
     self.backButton.enabled = NO;
     self.backButton.alpha = 0.4;
     
+    // set the values in the boxes based on the current settings
     self.carrierFrequencyInput.text = [NSString stringWithFormat:@"%.0f",self.carrierFrequency];
     self.oversampleInput.text = [NSString stringWithFormat:@"%d", self.oversample];
     self.nPeriodsInput.text = [NSString stringWithFormat:@"%d",self.nPeriods];
     self.rollOffFactorInput.text = [NSString stringWithFormat:@"%.2f",self.rollOffFactor];
     self.enableQPSK.on = !self.isBPSK;
     self.carrierFrequencyOnlySwitch.on = self.carrierFrequencyOnly;
+    
+    // Set the barker13 or random51 based on the value from input controller
+    self.barkerUITextLabel.font = [UIFont systemFontOfSize:12];
+    self.random51TextLabel.font = [UIFont systemFontOfSize:12];
+    if (self.isBarker13 == true){
+        self.barkerUITextLabel.alpha = 1;
+        self.barkerUITextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.random51TextLabel.alpha = 0.4;
+        self.random51TextLabel.font = [UIFont systemFontOfSize:12];
+        self.barker13Switch.on = false;
+    }
+    else{
+        self.barkerUITextLabel.alpha = 0.4;
+        self.barkerUITextLabel.font = [UIFont systemFontOfSize:12];
+        self.random51TextLabel.alpha = 1;
+        self.random51TextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.barker13Switch.on = true;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// switch between barker and random 51
+- (IBAction)setBarker13Pilot:(id)sender {
+    if (self.barker13Switch.on == false){
+        self.barkerUITextLabel.alpha = 1;
+        self.barkerUITextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.random51TextLabel.alpha = 0.4;
+        self.random51TextLabel.font = [UIFont systemFontOfSize:12];
+        self.isBarker13 = true;
+    }
+    else{
+        self.barkerUITextLabel.alpha = 0.4;
+        self.barkerUITextLabel.font = [UIFont systemFontOfSize:12];
+        self.random51TextLabel.alpha = 1;
+        self.random51TextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.isBarker13 = false;
+    }
+
 }
 
 - (IBAction)saveParameters:(id)sender {
