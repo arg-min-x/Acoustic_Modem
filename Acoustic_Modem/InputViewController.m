@@ -56,6 +56,7 @@
 }
 
 - (IBAction)submitForTransmission:(id)sender {
+    [self disableButtons];  // Disable Buttons
     // Clear Text Keyboard if still there
     [self.textInputField resignFirstResponder];
     self.modemTransferOb.carrierFrequencyOnly = false;
@@ -86,8 +87,13 @@
     [self.audioController configureAudioPlayer];
     [self.audioController tryPlaySound];                        // Play the signal
     [self.modemTransferOb freeMemory];
+    
+    // Set a timer to enable the button again
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(enableButtons) userInfo:nil repeats:NO];
 }
+
 - (IBAction)transmitCarrierFrequency:(id)sender {
+    [self disableButtons];// Disable Buttons
     self.modemTransferOb.carrierFrequencyOnly = true;
     [self.textInputField resignFirstResponder];         // Clear Text Keyboard if still there
     [self.modemTransferOb createCarrierFrequencyOnly];
@@ -100,8 +106,29 @@
     [self.audioController configureAudioPlayer];
     [self.audioController tryPlaySound];                        // Play the signal
     [self.modemTransferOb freeMemory];
+    
+    // Set a timer to enable the button again
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(enableButtons) userInfo:nil repeats:NO];
+    
 }
 
+-(void) disableButtons{
+    self.transmitCarrierFrequencyButton.enabled = false;
+    self.transmitCarrierFrequencyButton.alpha = 0.4;
+    self.settingsButton.enabled = false;
+    self.settingsButton.alpha = 0.4;
+    self.transmitSignalButton.enabled = false;
+    self.transmitSignalButton.alpha = 0.4;
+}
+
+-(void) enableButtons{
+    self.transmitCarrierFrequencyButton.enabled = true;
+    self.transmitCarrierFrequencyButton.alpha = 1;
+    self.settingsButton.enabled = true;
+    self.settingsButton.alpha = 1;
+    self.transmitSignalButton.enabled = true;
+    self.transmitSignalButton.alpha = 1;
+}
 // get rid of keyboard when touching outside the keyboard
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.textInputField resignFirstResponder];
