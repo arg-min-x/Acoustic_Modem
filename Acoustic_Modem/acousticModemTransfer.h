@@ -20,6 +20,8 @@
     int *convertedtoSymbols;
     int *convertedtoIs;
     int *convertedtoQs;
+    int pilotLength;
+    int *pilots;
     unsigned long lenString; //length of input
     bool sample;
     float *Symbolswithzeros;

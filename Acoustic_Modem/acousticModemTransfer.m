@@ -17,7 +17,8 @@
     self = [super init];
     self.rollOffFactor = 0.5;
     self.nPeriods = 5;
-    myString = @"Hello, World!_________";
+    myString = @"Hello, World!";
+    myString = [myString stringByPaddingToLength:50 withString:@"_" startingAtIndex:0];
     bitspersymbol=1;
     self.carrierFrequency=2000;
     self.oversample=110;
@@ -52,12 +53,32 @@
     convertedtoBPSK = (int*)malloc((len*8+13)*sizeof(int));
 //    int pilots[26]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1,
 //                     +1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
-    int pilots[13]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
-
+    
+    int barker13[13] = {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
+    int random51[51] = {+1,+1,-1,+1,+1,-1,-1,+1,+1,+1,
+                        -1,+1,+1,-1,+1,-1,-1,+1,+1,+1,
+                        +1,-1,+1,+1,+1,+1,+1,-1,+1,-1,
+                        +1,-1,-1,-1,-1,+1,+1,-1,+1,-1,
+                        -1,-1,+1,+1,-1,-1,-1,+1,+1,+1
+                        -1};
+    
+    if (self.isBarker13==true) {
+        pilotLength = 13;
+        pilots = (int*)malloc(pilotLength*sizeof(int));
+        for (int ind =0; ind<13; ind++) {
+            pilots[ind] = barker13[ind];
+        }
+    }
+    else{
+        pilotLength = 51;
+        pilots = (int*)malloc(pilotLength*sizeof(int));
+        for (int ind = 0; ind<51; ind++) {
+            pilots[ind] = random51[ind];
+        }
+    }
     int m=0;
     
-    for (int pi=0; pi<13; pi++) { //adding in pilot symbols
-//        for (int pi=0; pi<13; pi++) { //adding in pilot symbols
+    for (int pi=0; pi<pilotLength; pi++) { //adding in pilot symbols
         convertedtoBPSK[m]=pilots[pi];
         m++;
     }
@@ -95,16 +116,37 @@
     char d = 0x40;//-1 second quadrant
     char symbols[]={a,b,c,d};
     
-//    int pilots[26]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1,+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
-    int pilots[13]= {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
     
-    convertedtoIs = (int*)malloc((len*4+13)*sizeof(int));  //real part
-    convertedtoQs = (int*)malloc((len*4+13)*sizeof(int)); //imaginary part
+    int barker13[13] = {+1,+1,+1,+1,+1,-1,-1,+1,+1,-1,+1,-1,+1};
+    int random51[51] = {+1,+1,-1,+1,+1,-1,-1,+1,+1,+1,
+                        -1,+1,+1,-1,+1,-1,-1,+1,+1,+1,
+                        +1,-1,+1,+1,+1,+1,+1,-1,+1,-1,
+                        +1,-1,-1,-1,-1,+1,+1,-1,+1,-1,
+                        -1,-1,+1,+1,-1,-1,-1,+1,+1,+1
+                        -1};
+    
+    if (self.isBarker13==true) {
+        pilotLength = 13;
+        pilots = (int*)malloc(pilotLength*sizeof(int));
+        for (int ind =0; ind<13; ind++) {
+            pilots[ind] = barker13[ind];
+        }
+    }
+    else{
+        pilotLength = 51;
+        pilots = (int*)malloc(pilotLength*sizeof(int));
+        for (int ind = 0; ind<51; ind++) {
+            pilots[ind] = random51[ind];
+        }
+    }
+    
+    convertedtoIs = (int*)malloc((len*4+pilotLength)*sizeof(int));  //real part
+    convertedtoQs = (int*)malloc((len*4+pilotLength)*sizeof(int)); //imaginary part
     
     int m=0;
     
     
-    for (int pi=0; pi<13; pi++) {
+    for (int pi=0; pi<pilotLength; pi++) {
         convertedtoQs[m]=0;
         convertedtoIs[m]=pilots[pi]; //pilots real part only
         m++;
@@ -164,11 +206,17 @@
             }
         }
     }
+    
+    int ind;
+    for (ind=0; ind<100; ind++) { //adding in pilot symbols
+        //            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind],convertedtoBPSK[ind]);
+        printf("ind[%d],convertedIs = %d convertedQs = %d\n",ind,convertedtoIs[ind],convertedtoQs[ind]);
+    }
 }
 
 -(void)zerosQPSK{
     // int length = [self.stringInput.text length]*4;
-    int length = lenString*4+13;
+    int length = lenString*4+pilotLength;
     int newlength = length*self.oversample;
     float padding =self.nPeriods*self.oversample*2;
     int x=0;
@@ -184,7 +232,7 @@
         //  printf("%f\n",zeroeswithIs[x]);
         x++;
     }for (int z=0; z<length; z++) {
-        zeroeswithIs[x] =(float) convertedtoIs[z]; //insert symbol
+        zeroeswithIs[x] = (float)convertedtoIs[z]; //insert symbol
         zeroeswithQs[x] = (float)convertedtoQs[z]; //insert symbol
         // printf("%f\n",zeroeswithIs[x]);
         
@@ -209,7 +257,7 @@
 
 -(void)Addinzeros{
 //     int length=[self.stringInput.text length]*8+26; //number of bits
-    int length = lenString*8+13;
+    int length = lenString*8+pilotLength;
     float padding = self.nPeriods*self.oversample*2; // whole filter length (nPeriods in both direction)
     int newlength = length*self.oversample+padding*2; //number of bits plus zeros
     int x = 0;
@@ -239,10 +287,11 @@
     for (q=*count; q<padding+*count; q++) {
         Symbolswithzeros[q]=0;
     }
-//    int ind;
-//        for (ind=0; ind<newlength; ind++) { //adding in pilot symbols
-//            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind+10],convertedtoBPSK[ind]);
-//        }
+    int ind;
+        for (ind=0; ind<100; ind++) { //adding in pilot symbols
+//            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind],convertedtoBPSK[ind]);
+            printf("ind[%d],converted = %d\n",ind,convertedtoBPSK[ind]);
+        }
     
 }
 
@@ -274,7 +323,7 @@
 -(void)QPSKconvolutionandmodulation{
 
     vDSP_Length filterlength=self.nPeriods*self.oversample*2;
-    lenOfSymbolsWithZeros = (lenString*4+13)*self.oversample+2*filterlength;
+    lenOfSymbolsWithZeros = (lenString*4+pilotLength)*self.oversample+2*filterlength;
 
     vDSP_Length qLength = lenOfSymbolsWithZeros - filterlength;
     vDSP_Length iLength = lenOfSymbolsWithZeros - filterlength;
@@ -302,7 +351,7 @@
 
 -(void)BPSKconvolutionandmodulation {
     vDSP_Length filterlength=self.oversample*self.nPeriods*2;
-    lenOfSymbolsWithZeros = (lenString*8+13)*self.oversample+2*filterlength;
+    lenOfSymbolsWithZeros = (lenString*8+pilotLength)*self.oversample+2*filterlength;
     
     ResultLength=lenOfSymbolsWithZeros-filterlength;
     
@@ -381,7 +430,6 @@
 -(void)freeMemory
 {
     if (self.carrierFrequencyOnly==0) {
-        
         if (self.isBPSK) {
             free(convertedtoBPSK);
             free(Symbolswithzeros);
@@ -392,11 +440,11 @@
             free(zeroeswithIs);
             free(zeroeswithQs);
         }
-    free(parray);
+        free(parray);
+        free(pilots);
     }
 
     free(signal);
-    
     [[NSFileManager defaultManager] removeItemAtURL:fileURL error:nil];
 }
 
