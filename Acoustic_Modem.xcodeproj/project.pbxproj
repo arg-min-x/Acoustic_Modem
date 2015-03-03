@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		663510361AA5252B007F378F /* launch_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 663510351AA5252B007F378F /* launch_screen.png */; };
 		665DA1D21A9E37D100C1819E /* coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 665DA1D11A9E37D100C1819E /* coverart.png */; };
 		6684DE571A9D0508001F687A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE561A9D0508001F687A /* main.m */; };
 		6684DE5A1A9D0508001F687A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE591A9D0508001F687A /* AppDelegate.m */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		663510351AA5252B007F378F /* launch_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen.png; sourceTree = "<group>"; };
 		665DA1D11A9E37D100C1819E /* coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coverart.png; sourceTree = "<group>"; };
 		6684DE511A9D0508001F687A /* Acoustic_Modem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acoustic_Modem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6684DE551A9D0508001F687A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		6684DE531A9D0508001F687A /* Acoustic_Modem */ = {
 			isa = PBXGroup;
 			children = (
+				663510351AA5252B007F378F /* launch_screen.png */,
 				665DA1D11A9E37D100C1819E /* coverart.png */,
 				6684DE7A1A9D062F001F687A /* acousticModemTransfer.h */,
 				6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */,
@@ -218,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663510361AA5252B007F378F /* launch_screen.png in Resources */,
 				665DA1D21A9E37D100C1819E /* coverart.png in Resources */,
 				6684DE601A9D0508001F687A /* Main.storyboard in Resources */,
 				6684DE651A9D0508001F687A /* LaunchScreen.xib in Resources */,

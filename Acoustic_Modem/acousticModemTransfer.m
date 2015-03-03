@@ -207,11 +207,11 @@
         }
     }
     
-    int ind;
-    for (ind=0; ind<100; ind++) { //adding in pilot symbols
-        //            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind],convertedtoBPSK[ind]);
-        printf("ind[%d],convertedIs = %d convertedQs = %d\n",ind,convertedtoIs[ind],convertedtoQs[ind]);
-    }
+//    int ind;
+//    for (ind=0; ind<100; ind++) { //adding in pilot symbols
+//        //            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind],convertedtoBPSK[ind]);
+//        printf("ind[%d],convertedIs = %d convertedQs = %d\n",ind,convertedtoIs[ind],convertedtoQs[ind]);
+//    }
 }
 
 -(void)zerosQPSK{
@@ -287,11 +287,11 @@
     for (q=*count; q<padding+*count; q++) {
         Symbolswithzeros[q]=0;
     }
-    int ind;
-        for (ind=0; ind<100; ind++) { //adding in pilot symbols
-//            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind],convertedtoBPSK[ind]);
-            printf("ind[%d],converted = %d\n",ind,convertedtoBPSK[ind]);
-        }
+//    int ind;
+//        for (ind=0; ind<100; ind++) { //adding in pilot symbols
+////            printf("ind[%d], symbols= %f, converted = %d\n",ind, Symbolswithzeros[ind],convertedtoBPSK[ind]);
+//            printf("ind[%d],converted = %d\n",ind,convertedtoBPSK[ind]);
+//        }
     
 }
 

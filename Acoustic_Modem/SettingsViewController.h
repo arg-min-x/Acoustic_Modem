@@ -21,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UISwitch *barker13Switch;
 @property (strong, nonatomic) IBOutlet UILabel *barkerUITextLabel;
 @property (strong, nonatomic) IBOutlet UILabel *random51TextLabel;
+@property (strong, nonatomic) IBOutlet UILabel *BPSKTextLabel;
+@property (strong, nonatomic) IBOutlet UILabel *QPSKTextLabel;
+@property (strong, nonatomic) IBOutlet UISwitch *isBPSKSwitch;
 
 @property (nonatomic) float carrierFrequency;       // carrier frequency
 @property (nonatomic) int oversample;               // oversamplig factor

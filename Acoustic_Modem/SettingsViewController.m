@@ -30,6 +30,24 @@
     self.enableQPSK.on = !self.isBPSK;
     self.carrierFrequencyOnlySwitch.on = self.carrierFrequencyOnly;
     
+    // Set BPSK or QPSK based on input contorller value
+    self.BPSKTextLabel.font = [UIFont systemFontOfSize:12];
+    self.QPSKTextLabel.font = [UIFont systemFontOfSize:12];
+    if (self.isBPSK == true){
+        self.BPSKTextLabel.alpha = 1;
+        self.BPSKTextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.QPSKTextLabel.alpha = 0.4;
+        self.QPSKTextLabel.font = [UIFont systemFontOfSize:12];
+        self.isBPSKSwitch.on = false;
+    }
+    else{
+        self.QPSKTextLabel.alpha = 0.4;
+        self.QPSKTextLabel.font = [UIFont systemFontOfSize:12];
+        self.BPSKTextLabel.alpha = 1;
+        self.BPSKTextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.isBPSKSwitch.on = true;
+    }
+    
     // Set the barker13 or random51 based on the value from input controller
     self.barkerUITextLabel.font = [UIFont systemFontOfSize:12];
     self.random51TextLabel.font = [UIFont systemFontOfSize:12];
@@ -71,6 +89,22 @@
         self.isBarker13 = false;
     }
 
+}
+- (IBAction)setBPSK:(id)sender {
+    if (self.isBPSKSwitch.on == false){
+        self.BPSKTextLabel.alpha = 1;
+        self.BPSKTextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.QPSKTextLabel.alpha = 0.4;
+        self.QPSKTextLabel.font = [UIFont systemFontOfSize:12];
+        self.isBPSK = true;
+    }
+    else{
+        self.QPSKTextLabel.alpha = 1;
+        self.QPSKTextLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.BPSKTextLabel.alpha = 0.4;
+        self.BPSKTextLabel.font = [UIFont systemFontOfSize:12];
+        self.isBPSK = false;
+    }
 }
 
 - (IBAction)saveParameters:(id)sender {
