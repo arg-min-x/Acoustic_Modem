@@ -127,7 +127,7 @@
     tmp = self.nPeriodsInput.text;
     self.nPeriods = [tmp intValue];
     
-    // Check if the BPSK switch is checked ans set isBPSK
+    // Check if the BPSK switch is checked and set isBPSK
     BOOL isEnabledQPSK = self.enableQPSK.on;
     if (isEnabledQPSK== 0) {
         self.isBPSK = true;

@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		663510361AA5252B007F378F /* launch_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 663510351AA5252B007F378F /* launch_screen.png */; };
+		663AD02D1AD5847600167B37 /* launch_screen_v1_768x1024_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 663AD02A1AD5847600167B37 /* launch_screen_v1_768x1024_landscape.png */; };
+		663AD02E1AD5847600167B37 /* launch_screen_v1_1242x2208_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 663AD02B1AD5847600167B37 /* launch_screen_v1_1242x2208_landscape.png */; };
+		663AD02F1AD5847600167B37 /* launch_screen_v1_1536x2048_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 663AD02C1AD5847600167B37 /* launch_screen_v1_1536x2048_landscape.png */; };
 		665DA1D21A9E37D100C1819E /* coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 665DA1D11A9E37D100C1819E /* coverart.png */; };
+		667978311AD4B80300CE8634 /* launch_screen_v1_1242x2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 6679782B1AD4B80300CE8634 /* launch_screen_v1_1242x2208.png */; };
+		667978321AD4B80300CE8634 /* launch_screen_v1_1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 6679782C1AD4B80300CE8634 /* launch_screen_v1_1536x2048.png */; };
+		667978331AD4B80300CE8634 /* launch_screen_v1_640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 6679782D1AD4B80300CE8634 /* launch_screen_v1_640x1136.png */; };
+		667978341AD4B80300CE8634 /* launch_screen_v1_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 6679782E1AD4B80300CE8634 /* launch_screen_v1_640x960.png */; };
+		667978351AD4B80300CE8634 /* launch_screen_v1_750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 6679782F1AD4B80300CE8634 /* launch_screen_v1_750x1334.png */; };
+		667978361AD4B80300CE8634 /* launch_screen_v1_768x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 667978301AD4B80300CE8634 /* launch_screen_v1_768x1024.png */; };
 		6684DE571A9D0508001F687A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE561A9D0508001F687A /* main.m */; };
 		6684DE5A1A9D0508001F687A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE591A9D0508001F687A /* AppDelegate.m */; };
 		6684DE5D1A9D0508001F687A /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE5C1A9D0508001F687A /* InputViewController.m */; };
 		6684DE601A9D0508001F687A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6684DE5E1A9D0508001F687A /* Main.storyboard */; };
 		6684DE621A9D0508001F687A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6684DE611A9D0508001F687A /* Images.xcassets */; };
-		6684DE651A9D0508001F687A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6684DE631A9D0508001F687A /* LaunchScreen.xib */; };
 		6684DE711A9D0508001F687A /* Acoustic_ModemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE701A9D0508001F687A /* Acoustic_ModemTests.m */; };
 		6684DE7E1A9D062F001F687A /* acousticModemTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */; };
 		6684DE7F1A9D062F001F687A /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE7D1A9D062F001F687A /* AudioController.m */; };
 		6684DE821A9D0A1B001F687A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6684DE811A9D0A1B001F687A /* SettingsViewController.m */; };
+		6696CAB71AD4C62000388404 /* Icon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAAD1AD4C62000388404 /* Icon_120x120.png */; };
+		6696CAB81AD4C62000388404 /* Icon_152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAAE1AD4C62000388404 /* Icon_152x152.png */; };
+		6696CAB91AD4C62000388404 /* Icon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAAF1AD4C62000388404 /* Icon_180x180.png */; };
+		6696CABA1AD4C62000388404 /* Icon_29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB01AD4C62000388404 /* Icon_29x29.png */; };
+		6696CABB1AD4C62000388404 /* Icon_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB11AD4C62000388404 /* Icon_40x40.png */; };
+		6696CABC1AD4C62000388404 /* Icon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB21AD4C62000388404 /* Icon_58x58.png */; };
+		6696CABD1AD4C62000388404 /* Icon_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB31AD4C62000388404 /* Icon_60x60.png */; };
+		6696CABE1AD4C62000388404 /* Icon_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB41AD4C62000388404 /* Icon_76x76.png */; };
+		6696CABF1AD4C62000388404 /* Icon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB51AD4C62000388404 /* Icon_80x80.png */; };
+		6696CAC01AD4C62000388404 /* Icon_87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 6696CAB61AD4C62000388404 /* Icon_87x87.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		663510351AA5252B007F378F /* launch_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen.png; sourceTree = "<group>"; };
+		663AD02A1AD5847600167B37 /* launch_screen_v1_768x1024_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_768x1024_landscape.png; sourceTree = "<group>"; };
+		663AD02B1AD5847600167B37 /* launch_screen_v1_1242x2208_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_1242x2208_landscape.png; sourceTree = "<group>"; };
+		663AD02C1AD5847600167B37 /* launch_screen_v1_1536x2048_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_1536x2048_landscape.png; sourceTree = "<group>"; };
 		665DA1D11A9E37D100C1819E /* coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coverart.png; sourceTree = "<group>"; };
+		6679782B1AD4B80300CE8634 /* launch_screen_v1_1242x2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_1242x2208.png; sourceTree = "<group>"; };
+		6679782C1AD4B80300CE8634 /* launch_screen_v1_1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_1536x2048.png; sourceTree = "<group>"; };
+		6679782D1AD4B80300CE8634 /* launch_screen_v1_640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_640x1136.png; sourceTree = "<group>"; };
+		6679782E1AD4B80300CE8634 /* launch_screen_v1_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_640x960.png; sourceTree = "<group>"; };
+		6679782F1AD4B80300CE8634 /* launch_screen_v1_750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_750x1334.png; sourceTree = "<group>"; };
+		667978301AD4B80300CE8634 /* launch_screen_v1_768x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_screen_v1_768x1024.png; sourceTree = "<group>"; };
 		6684DE511A9D0508001F687A /* Acoustic_Modem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acoustic_Modem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6684DE551A9D0508001F687A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6684DE561A9D0508001F687A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,7 +68,6 @@
 		6684DE5C1A9D0508001F687A /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		6684DE5F1A9D0508001F687A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6684DE611A9D0508001F687A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6684DE641A9D0508001F687A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6684DE6A1A9D0508001F687A /* Acoustic_ModemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Acoustic_ModemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6684DE6F1A9D0508001F687A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6684DE701A9D0508001F687A /* Acoustic_ModemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Acoustic_ModemTests.m; sourceTree = "<group>"; };
@@ -53,6 +77,16 @@
 		6684DE7D1A9D062F001F687A /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		6684DE801A9D0A1B001F687A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6684DE811A9D0A1B001F687A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		6696CAAD1AD4C62000388404 /* Icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_120x120.png; sourceTree = "<group>"; };
+		6696CAAE1AD4C62000388404 /* Icon_152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_152x152.png; sourceTree = "<group>"; };
+		6696CAAF1AD4C62000388404 /* Icon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_180x180.png; sourceTree = "<group>"; };
+		6696CAB01AD4C62000388404 /* Icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_29x29.png; sourceTree = "<group>"; };
+		6696CAB11AD4C62000388404 /* Icon_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_40x40.png; sourceTree = "<group>"; };
+		6696CAB21AD4C62000388404 /* Icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_58x58.png; sourceTree = "<group>"; };
+		6696CAB31AD4C62000388404 /* Icon_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_60x60.png; sourceTree = "<group>"; };
+		6696CAB41AD4C62000388404 /* Icon_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_76x76.png; sourceTree = "<group>"; };
+		6696CAB51AD4C62000388404 /* Icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_80x80.png; sourceTree = "<group>"; };
+		6696CAB61AD4C62000388404 /* Icon_87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_87x87.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +107,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6679782A1AD4B80300CE8634 /* launch_png */ = {
+			isa = PBXGroup;
+			children = (
+				663AD02A1AD5847600167B37 /* launch_screen_v1_768x1024_landscape.png */,
+				663AD02B1AD5847600167B37 /* launch_screen_v1_1242x2208_landscape.png */,
+				663AD02C1AD5847600167B37 /* launch_screen_v1_1536x2048_landscape.png */,
+				6679782B1AD4B80300CE8634 /* launch_screen_v1_1242x2208.png */,
+				6679782C1AD4B80300CE8634 /* launch_screen_v1_1536x2048.png */,
+				6679782D1AD4B80300CE8634 /* launch_screen_v1_640x1136.png */,
+				6679782E1AD4B80300CE8634 /* launch_screen_v1_640x960.png */,
+				6679782F1AD4B80300CE8634 /* launch_screen_v1_750x1334.png */,
+				667978301AD4B80300CE8634 /* launch_screen_v1_768x1024.png */,
+			);
+			path = launch_png;
+			sourceTree = "<group>";
+		};
 		6684DE481A9D0508001F687A = {
 			isa = PBXGroup;
 			children = (
+				6696CAAC1AD4C62000388404 /* Icons */,
+				6679782A1AD4B80300CE8634 /* launch_png */,
 				6684DE531A9D0508001F687A /* Acoustic_Modem */,
 				6684DE6D1A9D0508001F687A /* Acoustic_ModemTests */,
 				6684DE521A9D0508001F687A /* Products */,
@@ -94,7 +146,6 @@
 		6684DE531A9D0508001F687A /* Acoustic_Modem */ = {
 			isa = PBXGroup;
 			children = (
-				663510351AA5252B007F378F /* launch_screen.png */,
 				665DA1D11A9E37D100C1819E /* coverart.png */,
 				6684DE7A1A9D062F001F687A /* acousticModemTransfer.h */,
 				6684DE7B1A9D062F001F687A /* acousticModemTransfer.m */,
@@ -106,7 +157,6 @@
 				6684DE5C1A9D0508001F687A /* InputViewController.m */,
 				6684DE5E1A9D0508001F687A /* Main.storyboard */,
 				6684DE611A9D0508001F687A /* Images.xcassets */,
-				6684DE631A9D0508001F687A /* LaunchScreen.xib */,
 				6684DE541A9D0508001F687A /* Supporting Files */,
 				6684DE801A9D0A1B001F687A /* SettingsViewController.h */,
 				6684DE811A9D0A1B001F687A /* SettingsViewController.m */,
@@ -138,6 +188,23 @@
 				6684DE6F1A9D0508001F687A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6696CAAC1AD4C62000388404 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				6696CAAD1AD4C62000388404 /* Icon_120x120.png */,
+				6696CAAE1AD4C62000388404 /* Icon_152x152.png */,
+				6696CAAF1AD4C62000388404 /* Icon_180x180.png */,
+				6696CAB01AD4C62000388404 /* Icon_29x29.png */,
+				6696CAB11AD4C62000388404 /* Icon_40x40.png */,
+				6696CAB21AD4C62000388404 /* Icon_58x58.png */,
+				6696CAB31AD4C62000388404 /* Icon_60x60.png */,
+				6696CAB41AD4C62000388404 /* Icon_76x76.png */,
+				6696CAB51AD4C62000388404 /* Icon_80x80.png */,
+				6696CAB61AD4C62000388404 /* Icon_87x87.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,11 +288,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663510361AA5252B007F378F /* launch_screen.png in Resources */,
+				667978321AD4B80300CE8634 /* launch_screen_v1_1536x2048.png in Resources */,
+				6696CAB91AD4C62000388404 /* Icon_180x180.png in Resources */,
+				6696CAB71AD4C62000388404 /* Icon_120x120.png in Resources */,
+				667978341AD4B80300CE8634 /* launch_screen_v1_640x960.png in Resources */,
+				667978311AD4B80300CE8634 /* launch_screen_v1_1242x2208.png in Resources */,
 				665DA1D21A9E37D100C1819E /* coverart.png in Resources */,
+				6696CABE1AD4C62000388404 /* Icon_76x76.png in Resources */,
+				6696CABF1AD4C62000388404 /* Icon_80x80.png in Resources */,
+				667978331AD4B80300CE8634 /* launch_screen_v1_640x1136.png in Resources */,
 				6684DE601A9D0508001F687A /* Main.storyboard in Resources */,
-				6684DE651A9D0508001F687A /* LaunchScreen.xib in Resources */,
+				6696CAC01AD4C62000388404 /* Icon_87x87.png in Resources */,
+				663AD02F1AD5847600167B37 /* launch_screen_v1_1536x2048_landscape.png in Resources */,
+				6696CABC1AD4C62000388404 /* Icon_58x58.png in Resources */,
+				6696CABA1AD4C62000388404 /* Icon_29x29.png in Resources */,
+				667978351AD4B80300CE8634 /* launch_screen_v1_750x1334.png in Resources */,
+				663AD02E1AD5847600167B37 /* launch_screen_v1_1242x2208_landscape.png in Resources */,
+				667978361AD4B80300CE8634 /* launch_screen_v1_768x1024.png in Resources */,
+				6696CAB81AD4C62000388404 /* Icon_152x152.png in Resources */,
+				6696CABD1AD4C62000388404 /* Icon_60x60.png in Resources */,
 				6684DE621A9D0508001F687A /* Images.xcassets in Resources */,
+				6696CABB1AD4C62000388404 /* Icon_40x40.png in Resources */,
+				663AD02D1AD5847600167B37 /* launch_screen_v1_768x1024_landscape.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,14 +361,6 @@
 				6684DE5F1A9D0508001F687A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6684DE631A9D0508001F687A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6684DE641A9D0508001F687A /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -372,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Acoustic_Modem/Info.plist;
@@ -386,6 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Acoustic_Modem/Info.plist;

@@ -23,6 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.modemTransferOb = [[acousticModemTransfer alloc] init];
+    
+    // Set buttons labels to center text alignment
+    [self.transmitSignalButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.transmitCarrierFrequencyButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,6 +116,7 @@
     
 }
 
+// Disable all the buttons while transmitting
 -(void) disableButtons{
     self.transmitCarrierFrequencyButton.enabled = false;
     self.transmitCarrierFrequencyButton.alpha = 0.4;
@@ -121,6 +126,7 @@
     self.transmitSignalButton.alpha = 0.4;
 }
 
+// Enable all buttons after transmitting is over
 -(void) enableButtons{
     self.transmitCarrierFrequencyButton.enabled = true;
     self.transmitCarrierFrequencyButton.alpha = 1;
@@ -129,8 +135,14 @@
     self.transmitSignalButton.enabled = true;
     self.transmitSignalButton.alpha = 1;
 }
+
 // get rid of keyboard when touching outside the keyboard
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.textInputField resignFirstResponder];
+}
+
+// Dismiss the keyboard when hitting done
+- (IBAction)dismissKeyboard:(id)sender{
     [self.textInputField resignFirstResponder];
 }
 
